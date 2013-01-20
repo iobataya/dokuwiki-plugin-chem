@@ -3,17 +3,6 @@ if(!defined('DOKU_INC')) die();
 if(!defined('DOKU_PLUGIN')) define('DOKU_PLUGIN',DOKU_INC.'lib/plugins/');
 require_once(DOKU_PLUGIN.'syntax.php');
 class syntax_plugin_chem extends DokuWiki_Syntax_Plugin {
-  function getInfo(){
-    return array(
-        'author' => 'Ikuo Obataya',
-        'email'  => 'I.Obataya@gmail.com',
-        'date'   => '2008-9-29',
-        'name'   => 'Chemical Formula Plugin',
-        'desc'   => 'Format chemical formula',
-        'url'    => 'http://symplus.edu-wiki.org/en/chem_plugin',
-    );
-}
-
   function getType(){ return 'formatting'; }
   function getAllowedTypes() { return array('formatting', 'substition', 'disabled'); }
   function getSort(){ return 158; }

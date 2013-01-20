@@ -1,0 +1,7 @@
+base   chem
+author Ikuo Obataya
+email  i.obataya[at]gmail_com
+date   2013-01-20
+name   Chem plugin
+desc   Format chemical formula in DokuWiki. Example: <chem>H+ + OH- <-> H2O</chem>
+url    http://www.dokuwiki.org/plugin:chem
