@@ -9,7 +9,7 @@ class syntax_plugin_chem extends DokuWiki_Syntax_Plugin {
   function connectTo($mode) { $this->Lexer->addEntryPattern('<chem>(?=.*?</chem>)',$mode,'plugin_chem'); }
   function postConnect() { $this->Lexer->addExitPattern('</chem>','plugin_chem'); }
 
-  function handle($match, $state, $pos, &$handler){
+  function handle($match, $state, $pos, Doku_Handler $handler){
     switch ($state) {
         case DOKU_LEXER_ENTER     :return array($state, '');
         case DOKU_LEXER_UNMATCHED :return array($state, $match);
@@ -18,7 +18,7 @@ class syntax_plugin_chem extends DokuWiki_Syntax_Plugin {
     return array();
   }
 
-  function render($mode, &$renderer, $data) {
+  function render($mode, Doku_Renderer $renderer, $data) {
     if($mode == 'xhtml' || $mode=='odt'){
       list($state, $match) = $data;
       switch ($state) {
