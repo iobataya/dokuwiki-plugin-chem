@@ -29,7 +29,12 @@ class syntax_plugin_chem extends DokuWiki_Syntax_Plugin {
             $renderer->doc .= $this->getChemFormat($match);
           }else{
             // Open document format
-            $renderer->doc.= $this->getOdtChemFormat($match);
+            if (!class_exists('ODTDocument')) {
+              $this->renderOdtChemFormat($renderer, $match);
+            } else {
+              $c = $this->getChemFormat($match);
+              $renderer->generateSpansfromHTMLCode($c);
+            }
           }
           break;
         case DOKU_LEXER_EXIT:break;
